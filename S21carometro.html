@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>1° ano de Seguranca do trabalho</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body style="background: lightGrey">
+<div class="callout callout-info" style="background-color: green;">
+	 <div class="row">
+    <div class="col-sm">
+	<img src="data:image/png;base64,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" Height="150px" width="150px">
+	 </div>
+    <div class="col-sm">
+
+	<br>
+	<h1 id="title"><b></b><b><i>S21</i></b></h1></div>
+</div>
+</div>
+</div>
+
+
+
+<div class="container">
+	<div class="row">
+    <div class="col-sm">
+    <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+   <div class="card-header"><center> 
+     <img src="semfoto"> </center></div>
+  <div class="card-body"><h6><i></i></h6>
+    <h5 class="card-title"><center><b>Aldilany Silva</b></center></h5>
+  </div>
+</div>
+    </div>
+    
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Allana Ramos</b></center></h5>
+     </div>
+     </div>
+     </div>
+    
+    
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Ana Leao</b></center></h5>
+     </div>
+     </div>
+     </div>
+    
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Antonio Martins</b></center></h5>
+     </div>
+     </div>
+     </div>
+     <div class="container">
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto" > </center></div>
+     <div class="card-body bg-light"><h6><i></i></h6>
+     <h5 class="card-title bg-light"><center><b>Bruna Santos</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto" wight="120px" height="190px"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Carleane Conceicao</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Dayane Ferro</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center><img src="semfoto" 
+          wight="120px" height="190px"></center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Deivila Silva</b></center></h5>
+     </div>
+     </div>
+     </div>
+     <div class="container">
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Edijelson Mascarenhas</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Edson Silva</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Ellen Silva</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Emilly Silva</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     <div class="container">
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center>
+          <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Erika Silva</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Evelyn Brito</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Flavia Silva</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src=semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Islayne Messias</b></center></h5>
+     </div>
+     </div>
+     </div>
+     <div class="container">
+     
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Josefa Silva</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Juliana Rocha</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Ketilly Santos</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Lavinia Duarte</b></center></h5>
+     </div>
+     </div>
+     </div>
+     <div class="container">
+     
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Lavinia Monteiro</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Leticia Xavier</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto" wight="120px" height="190px"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Luciene Silva</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Maria Leite</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     <div class="container">
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> 
+          <img src="semfoto" 
+          wight="120px" height="190px"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Maria Albuquerque</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto" wight="120px" height="190px"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Maria Bezerra</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Mariana Costa</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="Maria Fernanda Silva"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Miguel Alves</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     <div class="container">
+     
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Mirelly Xavier</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Nayane Costa</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Pedro Carvalho</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Rayca Silva</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="container">
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Rebeca Amorim</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Rikelmi Silva</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Ronald Silva</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Ruan Alves</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="container">
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Sylvio Ramos</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Yvilly Melo</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="semfoto"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Zaldiron Lima</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     
+       <div class="container">
+      <div class="row">
+     <div class="col-sm">
+     <div class="col-sm">
+
+
+
+     <a href="turmasseguranca.html"><center><button>Voltar</button></center></a>
+</div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+    <style type="text/css">
+    .card-header img:hover{
+    transform:scale(1.35,1.35);
+    transition: 0.5s;}
+    
+    
+    body{
+    padding: 5px;
+    font-family:Helvetica}
+    
+    .card-header img{
+    border: 4px solid #fff;
+    width: 210px;
+    }
+   }
+
+    h1{
+    color: #fff;
+    font-size: 75px;
+    align-text:center;}
+    
+    hr{
+    color: black;}
+    
+    .rodape{
+    color: #fff;
+    background-color:green;}
+    
+    button{
+    background-color: green;
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius:5px;
+    text-decoration: none;
+    display: block;
+    width: 120px;
+    padding: 12px 7px;
+    text-align: center;
+    margin:20px;
+    transition: 0.5s;
+    }
+    button:hover{
+    background-color: #234966;}
+    </style> 
+    <hr>
+    <div class="rodape">
+    <footer>
+    <p>&nbsp; &nbsp; IFAL CAMPUS PALMEIRA DOS INDIOS  &copy; 2022 &nbsp; &nbsp;</p>
+    
+    
+    </footer>
+    <style type="text/css">
+     .card-body{
+     background-color:white;}
+     .card-title{
+     color: green;}
+     .card-header img{
+      wight: 120px;
+      height:190px;
+     }
+     </style>
+     
+    </div>
+    </body>
+    </html>

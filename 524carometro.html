@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>4° ano de informatica</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body style="background: lightGrey">
+<div class="callout callout-info" style="background-color: green;">
+	 <div class="row">
+    <div class="col-sm">
+	<img src="data:image/png;base64,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" Height="150px" width="150px">
+	 </div>
+    <div class="col-sm">
+
+	<br>
+	<h1 id="title"><b></b><b><i>524</i></b></h1></div>
+</div>
+</div>
+</div>
+
+
+
+<div class="container">
+	<div class="row">
+    <div class="col-sm">
+    <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+   <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/g59VIfAg4_vO29tjkP0GVhRdO59m_61VdBkIyTiwJDcCyApCTPdlHk_yR_kLfazUlfLosuHk9VTm92DDiGnsC0UnHZsCm3KnC9oPRiyR51LKF5PjPanopw6QV4Vzq2-QH7Trkb3W55Ijt8pvzhpYjS_Ag79uYfDvAYwTTkhJxEOVHW0SxvR6WEJlhd3ZS7WlzujEnCRx9kq-L-0N0l-6okixyFg2MsXtnTc6Swf8sKq_i5I-2fIpZkLh9ay4XSmgn7AL0q_TGeqgUwlQW1AYWaa-sD31jaKQYpXnF96ugXo84oChBAiqLaZLQ0tQ6erhFCaldHxYQL0eSJdZaVFwpuzN2JBUG0jNwtvMLDw9W3R7PjSHFRFdTX4ffDttcmtUG1q8S_MJu5f2_8pd8BT84WspEjqV6Nx1AhBdQaz3fxGA-66LlHvsOvc9YAPWnWh5KJ9VNg1rAaN2kyILwHx91Bawio3GXQBGd8hwwVZ7zual4jaAGkUk8-0Li_F26zad0QbM7jPy7KCogZTRAVrTDr6cdPBHIDTeis8izdTRsK9iVikr1iuVCIImVRgONb1pi2N5nhXzSm-VEDjRd4Dhxo9P5LJJOZg_1Rlp-3dyQhKiQEHjSdec0zWnKewnXQPChzMwNmd40hLlvvOEddN969ShERTGdWl1FyHtJH_uke-PfgRNE4XgCqezMNKeQpsP4Lm0B7f7oC72kg8HwT_mmEhRGlQRzBZq59yNntMwlgRwZJyq98tcicfBkzM=w181-h191-no?authuser=0"> </center></div>
+  <div class="card-body"><h6><i></i></h6>
+    <h5 class="card-title"><center><b>Alicia Araujo</b></center></h5>
+  </div>
+</div>
+    </div>
+    
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/a-voXL0gVH8Z1NKM106ysfAhW0klow_ljRrjE3-Kn9h_GNpeJJLnDkQc6esrQQdeKKYO-fsUxN8F90gNy-8OTg1nJ5FikOn_98YvF1WxCqd2ZRt6dzy5sSL8xMe4qpWMB9_J1pPEI1CdjejbzGyVaQD5ufEzlnBi_3PiKkae2_iiX_ohcFYH-Ab2a83WYbGcfl7StKEQAZVTs4yVZC7B2-z4w4EX1EPPTQc_Qbnx223spjZzAUCexiwAA1GBFLOMFPUaM4iAlFbciMGGvNPO-iwoapYR_EcOwBzbQ-n2ze9mIlIGheUZGKeqDI-6MUEo4fNpELZKjeqsdcChF6u2ClOgCPrYRCyXJYos0DJue2WbWeQML2wgR-YMi7WUSyeDN47ppNJeX68HS8RGHvaSwGJZ69A-itPIugJeQCRXoEESh_AWTL89BIbw_H0WbRJ6rW1lMnfgzak0_GsfvSKj-azQBWc5Df52-vCSpRouWsV5WtATXEspLjnlsKlXu5Nv0VB5C9xlqWdzSYCSAhuYok3dgYhCqWtxU5D37x8bTpMbv7kZFiQ1FszyjthyOx7BG5QJv5r2Upl6_FgF6bcK9vAmrEn22pYHZDBGdIupCZhPPK0eB6pkpyt-rl7WHbnqpK4kPAHCm2bl0kTGmjoXgRtoH83c1PYJCz511MBGS0LARCDSCgrS8J5CKKIX9MVnPlwhADCTHKeO0wGYpGLGoDaKAc1iSvUxgshM0hwy1ItC-GBgStfcu8EqwXI=w189-h210-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Ana Andrade</b></center></h5>
+     </div>
+     </div>
+     </div>
+    
+    
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/6ZfURMexQhgVL14qu1lEc8Mc2JSNk4dVGmJjeeq2YWenAg3By2fBrjWIYrH483Q1dX_y9VPK77PxvnVNza-nlFY1iL0Ni7yoY8vFWkXMqKsW-nwe7cbmFLbrA5R-r4305Bz8KX_rZUxslGXMAi_Kj4-G9WTZNS_Yv9mL9SpRdYQZda1PhvdnVAOewPLyfarx2GfTfssgGcemnQPzn2ntFLCCet7q6r8J3rfDQkzKlL02rWS0EYIQr5_LWFSCNCjKSYD4iwtcz4zCgsG0F0GR3iwbZixupmEcMFEz0-ZKQVgqHlSXnNhTZW_p3-fAZauXFvUlWaY8g8PRCFisPoVkdZUFVf-6WtAw1ZufECRl4bakgaQ2r-Bn2TlH5Q9Nzybo8K-TVy92EEO42-sFHhFYFZ1SZSSI7tlTVy7No5knaD4No9hiICwEcMQK4ZTMHPjc4al4EtaKIBMS6pTg2iB-GJD0PathaAYX3hFHxLINJW56Flk9DqCspXdL7iDtWw9-1wGIouf07ztOzEGMkQnqML3luZwoukdqSCrgkgBcyx4Eju56DreTRwz-dCzYVo6GAH7IK7-AKlCGnKQkb9pToxd1yL9vFeY5lPEAiWgnFa-8xi8IoH1Z9nisEfuX7wpTzNMPPQKLubv1wp2rdipHW-4jLU74kxcELBWHIHS5avAa98q6fTGSNtsXaAYP6pdmMAAGPxwopPIkywKDakFjLLJZLWxtjhHQH1Ua3U58dyFxeVbQbNLJUlZQUMo=w800-h781-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Dênisson Silva</b></center></h5>
+     </div>
+     </div>
+     </div>
+    
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/1mHNSiU-K7yPxAGoqT9KUx-H6IyqtUf9AyVeOyIymO-K_er1jyR0CQvGQFQZlNesDCHU9J8C9MEnwptDIWZhzSEWd16YjHIib3IR_zO4W6REwlKvqmsMmzwfS_Z-tyCwSEqAS3R13-pB-UmcNblZrwht9LuRVvKNsbw26-YXicauHCeYZ6RscbNtHgSyzoI8h54J5lmbwgZM4n5R7Wjx6QZ2Z17fyWs3o8EZDM8Dzg-o1IJddWXVM_FWb7EFI1JZeEXzjSsXVWHloZargQzU_CjW4nK_ohO56iGvjGoK9mbOJqamgbXwJOj6V_iQYDPq4I1roatICIinVcjWMvCq0I21Emped4vLifmIYasT3cU1nRI4SAvT41ioyPI1o3yooU8COQ-gw7mY-wE_39ZgVYclbyhcznJxvvzhQ4Ybg7onAr8GvnKkixPZquIbFtb1n4AZd8WphdGs-tSkywIkFcC0pR92RJz-g3DLF3iYkSDcvAhSekCkzPPVI31JcrelADdzeW9Y5Qe77HE8yyI_Uuab0uGg13M_Kh6YzsaSyUB7-9Kfb1HPtrVPIrnwDN5NNx9HF8sQHT9WMsqd9MjxwB1KXz4-nPlRWaELpl9s3XRg6YcoD3jPFs-4clYVogGWES1I5BQVJugsj_HcU4-wRCMl7LxnoGJSre6r2k_Rjlew4EgYp6tn3-3OrdMr39Pe5s5wv2vP1YFqnUNCKsMRA3hy983I6uo5G26oVZg7Mx313oO9S3YN0cG41tw=w131-h156-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Edmilson Torres</b></center></h5>
+     </div>
+     </div>
+     </div>
+     <div class="container">
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/j_loOgJ7O02ir-16TYwt4yTmjtztB2N9wFufNt4m8kwSaLr4mjeizXUwnnrGgmtXfC6Ac4hdPYhGqIJ-sLjKqtqq62wlgXyKEMJEjDEiZIonndHB5hKEjWw8lqjSO5tvbwB0w9LUeujba4fz1fBcy_JjGUd2MX83sUTA6HH0rzFJN00ebKvmBjfy1w2RbsNafnEGZble8--Dv42zqeS_Wupcpj9AB8gwa_jnNcwy0nmqbkgkFTOB9HHTOQ45DsCxsu5j4OtfEojlM99BNurROutZ0XkgZaUqIhd7w9SlHauFqu3gbPdoaP6YBLLzGQ8YW93SOpi_gWvSBs4bJrD1_-JVzGJHRqgbx1x2H_gSdzRvdCkUOifYWibWWJGPVOMkmTyUK1LyX0qm9CWNyj5axswQfXjHfwtLon62tRM4UVV091FP0aWX8J5BGo5cIJpxgwQNA6eXgs4VBNYSxISB84sEIB2avqNt4HMHEjoWRgdg_T1ARl417WvWjHbfl1Xqkxl3m69bPmivf_KJ5SVjqjrERtJVsQne_RYM73i576glIIcvkE4a8SGraAJQWXt9c0cUST6lZqFcVGVq6ndst-cO9NqfAcDEqpxuusYj2hO4ZgoGUYR5ck__Y4WDyWYw84WpJzSYAJvglR3EvtzEuLYOZK0mHRDLI_2G-99u-6LPv9zwbaWmnEhfz8WLzhN2qO-XevEvcV7JW11Zkx3OM46Cfe6mfh9n-G3ELiYShbd9kMAcdTWlS0hBKoY=w163-h210-no?authuser=0" > </center></div>
+     <div class="card-body bg-light"><h6><i></i></h6>
+     <h5 class="card-title bg-light"><center><b>Ednaldo Junior</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/0vejnr7CTXw09Jv0xzgC0ti_eMH5QD72VzIRlnvf80HackIpy9uln-6YE2OfpN0n80kfkglFjRNW1_XWIi2B83pMCQa2KpaCVCPbldXmXITpA3syfHpMfy3-RcbsDAzPqwPrVLBZrom3rvklGbY4421Jk1tfQlOeaM8cfjeh4jRZ4e2lQ-yhRvmJou1DQU4P9EmZ7mJlcktbwZMgJFbZ9ISP7utTt5WgNf0XbDugU0Rq9y_RBZXuyBSlJEaVjWrWep4mter7qkmoHFN3rnGbuzQwheuJka_6VET9lgXB2EM7aA-BD_hNryrDSliiBGaPLbo7u6BBBtLkcFjb20huoer6xA5LvTcLmzn3u1YwgBSpH5SFpQHaHg9Zjun7Ac8b_d_PhfOcppdDgWm8bLxHbwFQaNrz9MUGrrRZoQPA4ztyoHvWrgSR0RKum4ZG59zOT6v3tKMznZsx0TMNfLb12dwXrd5rAQK4LA81lAlNS0OFQirbMgYqQsG1n6r0x1BpGZasrwtEurhxHpMPh1tlfd35LnRTURF4jNBtyOWDG7HF440RFKv7F7j-047IjM9ijMpGVr98YUPv9LrEB3jNQltKI74UAsXpODgtu4Sv4FGH3U4Gbe_cSR8Hmh6iwlTwwILv_kzZ1obrvaiVnGoEjCYZvMJo6WvownsPiUxUTadFgUOZZ8J9lqFLk4yh0U3JOpVVZS68OjmJWqOSxoBm5SRw8YBzHDQhlqtFCrJBj9HHp5gbWn8SrIJG0K0=w185-h207-no?authuser=0" wight="120px" height="190px"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Ellen Silva</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/7eL2hcr6SpEeDNir0udVvX14t14jjvlrmsduT6P4xZGtgPSbJAuaL2sQ8pe4jAcxawtUKIDRhqL7geuWg3XEG5IqFxeqqO4NJ2TQT-HTS_QwXmfL3H7HiY9_DJocKVDztRojJF3J_8P9isNLmHJONbYU6Nerk2371S11VR-vHgGkcaruLK2uLYSQ6qO-LPScJ6jDswsf5vOqFKT3vCzgrW0n-DNdMGs-PWNTbUy4BCB8PIuzdRgrPJR2ZZs8BJGQp_10_dy6By27ll5xrJmE1epvtVEDavm_h8fzvg6dvAuvfyuZRU2JXJyOj31ekgd5IVhxoMLgGv02Z3rlrm1tHBbALWNmF-CiojdSv_Es1HUq1gp8dQfrYGLQ4EpqwkanDSRqTsozbKt5LCRKcRXiSS8Lka34la3ls9RKITFziA0ySFUe92S97yr_VQ21uDvuE95SAKm_HGmHK7AJiupvgl5QJ9glXjnHky90Q_1TdG18iJkU85uI6GV8UqEjqLL6--hLdfNTw-yiH_gds2r7xpG1hKi2iCAiB4R0nX013P9AIO_GsjMV-CAj5rKzcW8yQ7WuIQ0pugyFQ3zgJ16XR2ynhMUkYLtLCufyoDYtVuUw37OsQNF8uVVQUtv1iGYTsctFb3SS7Wq5nf8uh0RkwbgjXYN8YjjeBgPix7lbWYf3p2AGH_LNqcsiAMGktUex4o-s4SGnVISDS22qXtyUmcnODqu8nflxdAjJymxEUd8FZT0QV_zAD-gyX88=w183-h201-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Emanuel Azevedo</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><img src="https://lh3.googleusercontent.com/JCmHVGAyubZQEdhWx_KaQRO03i9EtX4eqLKPjZx9BcmXUnGXXC_2mS6isvECsZP5SwKuqt58OLISlAAeO-bKMq4Yq9e5_3HoQA1-aTwZNBgr0dKXr1OwR1zW7ejwtzNLk6XhjwvTXc5S_SECDi0vaRCKQccM41Emmi1rCmeVEBko8KfG56bg87E6PWRz-XX_jDvGawogZJi4wsBopYepO4j5gk7sz643HmEs0i29yrTO8NUSzPpcLC-O4VNJhZr34AK5ZxTLfNOV3voYZmayjH3Z_1WBIZZ3cvNsv-WYFeXOSDH35DFvykg-ipov6jTLthKCLf-3kHcKVNLtzsKC7EvHcNuGPgt_RvZiyZtnMaexlCst-wUorx_3407Fxj_3Jd_fGZCg8VB77kC444MnzTgGEPlwKqOckHia6ayw6l9PIg6BA17yLLKgaZmbrl9fKReB_6xX43vqTQBEGm9kZTdgjrkkMIEe1cTSVAmEHBvYcTanSbMxukpjiUhZ7qeIk_cNTrxJiSBjzDbGbX_UMp0p231OfbJfVhRLR5hcxuGsJ9Y7iBXUbgOXDHgWdkEJdplQQ4Kh8op06MYQ6behXjrQ7tadfdPgwXz3wyOnzAdU3bDCz8hB5QdDCRMk3re1243Fh8F9hcJIM9Irb_vVTo576QTW_Uqsn7UysKQOelSCMb1vG6Fjd_d5jvgkmzam4QX72D4a-dbhaaPE5Bhuag2kG3TWriBJ3pQYinvXYJLjV8YLbSK-2X7k3qc=w166-h209-no?authuser=0" wight="120px" height="190px"></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Gleyce Veiga</b></center></h5>
+     </div>
+     </div>
+     </div>
+     <div class="container">
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/A0sIppSY1xwaty92td8gAYBmj_SrKkJHHDgkQRYFrZjrHeAdsMPG-REaCwIqITZ0zZUYHd-RZuvqSgIc8TZe0v4AXxX_ntf3Y_mSVAyqgGftcNiardUX8rfLu5xJWUhYB82xurnfKXJbxzDhodfTJR98im65Wum7vbEB8D4FnOMXgS3-Z-JItucHig86GUBjaKJxtXP96rf5V9APDA02Vtk1NDqAOwTFnhMSr-SpXR-bfGSW1rSxlJmSxQHke06WsplCg_fNdlYfnMMWHjp3z3q2ibCjLNyzoWJzyJ2c5-YCdHeWUhVzQoztx_A4RtCjNm78F6_ShXLLRPuaXB16jDEOAav1XcKGeRyJa98MjFgkfvje209diGme63Y58aWLD92l8x6_vrg1ZvmU1GHTij8_puqRawzN2sA8k76izNhkJfvEYB6-m5ypUfstDaJAimUKA_X83rWPpGDl4Mi39uUSxn2Qju-uzdnT72GKxMl8AaW7aCMlt1PoKVbZitdyWn7_X_79NBzivl3mNQQgFiwiCgxyCfG62CcbrQYdJqGoEs3Uo0LukuyJ7Txk9TDHPz2KRN6FrOHPiIdTQpTc9Q7vj75ai1ETHNBbp_q2I3VUQITXYw5EeIqDcs5rRdPcjiHZ4Ng8TIUfBFXJRtoH35DvnVFM5dI91LyzZJ2zNnCD-2ahvpW7u9iKJ5nZ3dFLPsKZoz78ggAuJuVxnTxHJa_CNxP5H5NPRDYNUT9RDVhbRejSDGdkfceowLQ=w131-h161-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Guilherme Farias</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/iDLRhamlamss78xeHqH5h0AWNM3NfEhIdpybIs1DMGWJqFLzA4PPlEKGv9jdFFBP_qTNcZ4wVlEkgaBw3E-sH_qnOJo48Cz4PJ0B6m5IRa8FGQXj63nyca97MiVugx8srgeBvgiMp5dzVELhl7ZFQ7jFG65zEqggQ_mUPXkICN2ArySGWr1Re7UDJVSyy8pkmbuM6_YBakpzIMWb2FpLmTGTOXkC_ytWAyZ0OuMSDbx9uLHNU_FWpNLohBRM5gg_dpF8woM_V_WdoGj2lRXRbCeuZsuFM-C87Fdt48QAfWWZwx56EfaEALAfXdloT-dA-YGb0uD9P6l8bbAsd22sij7KzIz_KqUWz2oCm7v475kJZCHYnpWltN09i_QSqWbD6h8nnfInPoUV5wAwcLrUkdXyMiV3137aocgol2MmW4q4IOd5ulcN0V04Mc-UQN22sc811VWt-lTFBaqgVBcG43R-SjnnZxce0uBJz_65igCzwUiOMCjXQYE75M2X-PrxgJL7y91Un3kj5fRC50E_lJ5yoWzJpg0QKhQkbWayiXYcC7k_FVnfEw03Q6itNbXmP27agDh9J56Gz60iE_EoM5IuXq9dwUeEeFoO9VheJCgxM41jQhZetTNKdGKWGLSiJJaezRFR0ka5Uz6tjISWzIXkWmFoMpwEEC_ELxk5Zqooe_RzTfOiFQ99lxVhxuHm3pAEbil9hsgCpzsf2mZYvylzcifyTqXtMBmAMHsowwuU6ujT23d4BaRBH7s=w167-h217-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Gustavo Oliveira</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/6ZfURMexQhgVL14qu1lEc8Mc2JSNk4dVGmJjeeq2YWenAg3By2fBrjWIYrH483Q1dX_y9VPK77PxvnVNza-nlFY1iL0Ni7yoY8vFWkXMqKsW-nwe7cbmFLbrA5R-r4305Bz8KX_rZUxslGXMAi_Kj4-G9WTZNS_Yv9mL9SpRdYQZda1PhvdnVAOewPLyfarx2GfTfssgGcemnQPzn2ntFLCCet7q6r8J3rfDQkzKlL02rWS0EYIQr5_LWFSCNCjKSYD4iwtcz4zCgsG0F0GR3iwbZixupmEcMFEz0-ZKQVgqHlSXnNhTZW_p3-fAZauXFvUlWaY8g8PRCFisPoVkdZUFVf-6WtAw1ZufECRl4bakgaQ2r-Bn2TlH5Q9Nzybo8K-TVy92EEO42-sFHhFYFZ1SZSSI7tlTVy7No5knaD4No9hiICwEcMQK4ZTMHPjc4al4EtaKIBMS6pTg2iB-GJD0PathaAYX3hFHxLINJW56Flk9DqCspXdL7iDtWw9-1wGIouf07ztOzEGMkQnqML3luZwoukdqSCrgkgBcyx4Eju56DreTRwz-dCzYVo6GAH7IK7-AKlCGnKQkb9pToxd1yL9vFeY5lPEAiWgnFa-8xi8IoH1Z9nisEfuX7wpTzNMPPQKLubv1wp2rdipHW-4jLU74kxcELBWHIHS5avAa98q6fTGSNtsXaAYP6pdmMAAGPxwopPIkywKDakFjLLJZLWxtjhHQH1Ua3U58dyFxeVbQbNLJUlZQUMo=w800-h781-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Iara Teixeira</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/TcCIqTF8U8BeT69E3rmbVg4Maw5BVc0o9MhWns0bsBvlvQQZ1bQTp3MqAQmDbxg5Ncekk89crXcP11JqJtIVUHFJEYBBdQqq_xYkgl7YVJcGTjuVAt1_kqmW0NTtfKRIuJuKBJJWIA0PDhU4h2iK09SLdRDa0Mymg0ZeyxUB1DG9Lvr6jpaCf6jgTVIS4Fry-GsyWGpWjIZzcIDcNO6NdVqa8gG4Vh4_zyAyV-25W1sX7t9HOJN6NT-f_y4tYoKFYDCtxgoDJqSFw12O3W-xxupCRCJ8R6XL2aFw0aKMw_4Jsf-P64u-JH1vutYksc1ahiy2AHdFc5niVunHZRJHPhTFdTrDGAleOQR5Jy6qa5BaTq6QMcLLcjE-zfXA-EAlNaJWmEPliX24M3DgQiRwBb1iu1rjmT3W4QuJs5ZZXatT6VyxtCFKyxZKayeJbIL_KhJBNhMX_E9VWTosonH0dycumhs8-ANI5mvPzYDPUXhKxOZ3bCdRtqqIrzU1u7aVa3wtjoax_-XEvbbCXkG0noTHS30I5vFuVSfPha3dZ7udCZohtIunu8UqCW6Tbpy23tcOQGX8Yeul4SZkyFpkq2tSVkqZPdck8OVlp5Fd7CE1-5ZNt6jRzCMjkGsiRn6j1XTEvAxoX27YB75nflX-RIhDNrjZzF5PMdQDGuoB3HXBk-msplL2weBUsxeLURQTtzh-g_pQIVzBO38qNSaXH4pRXgUf2QBXIgthf0kBL7S40FMZJC_oWM0hFjQ=w112-h161-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Italo Rodrigues</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     <div class="container">
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/M4aPN1seoPRzj170c2uGLOXAXWazkNsdJuyJXdgKYEIL2cRU2-Yo4YnGsz5ybalzr5Et1iCQEjkRVVfWFdmOaF5hOSe0SPfTyGeMYVflA3f5IXMmnBRg0gbhXSecYmDKxey_5bvn3W9tWNMxoa9nicDLsAMSCFRHGMPwPEQvQM1_DNtHWS0vFc6g72cbpY-XZ8Wld4mBXXNodsIJUnE7b-BvjA7JbSDSwBTBBsUqQg8P1m0LoIzhbpZrygf49UP9pbS1K5KTRCtKwj-DcyXbuqr7EwmgNs5fp5s_OXPv7QJeFoJHOoKETiuhzLS_XuhkmzxkLInFH2UfxqeBqLYQKuep8Nhuxisr809BqHh1ojIOA8A14S4oBuSAteDfbLB0BhgdMQ-io2uqebNT0INntHvTT6Lu0_JM6SEqhzvv6zDWzvU3SIJwvRu9ZjXzl-7eF38VKifRjG8w3suZHj27RU0kwBayjRhnJSa64zEKYMJtjQKbXjiXQIXBlNr8kN1KQTL1dGm2xOqhHiMx7sBB4S99jeiwGyb6J_cApgk_Veabf8nPpozrqSl8a5sth0o2MUegxyENm01LpAa_yUoUxjMZKyF9pwLB_8UU6Qlj_rd4WMMytbMqSBMkNsQHjHLw3DvngFzYCuIiR2yZmOMZ83E4sToMDABPSog8bdBsiPOy2peUbx03INmKErHC3rsbYEmzS_eB9_tQGQyzGSjOxae89us7gPACpBMVRNmek8KducgD6osgb0mA9ng=w191-h226-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Jessica Gama</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/w9f1Ym5TSFdpHLmnjnlqUpNApKFWB1nbaELjYSKeK6pySW4S0i19CCim8HGkSMbJgTlUV2JO_3lcPLezoSG0BToo_sgBLGosHCGIMuUyJaOBc3VLItahdnDhZ2I5h47zpnA_nmNq9mE5ySQAW2sGdraZuoewE91ONDrCfHVIrgFG4y6Pvk2S8IWxWhVw0x1BCMlrpSwYToIkl_eHKjf8PXhxTAfVg3_cXByuufDY0AMVsiL5-dGeHbGbSmPsQrtVg4QBuIb4vuvfRD0LpmrUQQ01vsvbsTdG7_PQbA5v_OjxKTw_ZJMfN7_e_WK6SmoekbwP2Ge6T24uEkwHEWnvhM2rifO-yHSmBvZSX-ki0rNbo8kO4hs3Nr4PtxJcPZ39uWFCFuSoPUgcvSALVb32w9wU_gcBihsL283Iz6tLphVcDnwafUAWkPe6po4fzNNuxgIT2SIkgQevKWdLr_s7JcxpKv8s1SQvQusQhhiUR1yYZZLEQDcO6SPRDTxSv2W7tu2Ve_c-S7B104kGOpvwm2AH5w_K9goXn2ScldaaHTgyaHtsY9zyGLY_vFNCUN4zbugsWxETx7WFlfBvCWqcOSmJAEFDGry9HPwlBgXcfroue_H1bqqOSBGKOLUhQRbFr6zV4grifHA1kSx-tyDMEVs5UBrGfXXNAqqZ1_jZtenchZ4XMG8IYVawYdZMHwlYsLIABGLOcuKucOeTt4lMlNyAFJOYZwbSwQkN8ojMqmD4pWSUHdO_2dqluoA=w167-h207-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Joao Euzebio</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/zijCHo9YD5vj6U0notseafcFdioV99qOAosD9BCxN9SRmHw9KSadR8kOIuWjzsw7mM4GQvmpwQiAUa8K9XxR9Cz29kq3XGe8NSbsTTG7IFRVvX28iuMwysst7U4x9Q4hd5CA8pP6wGSaA4gj3rwrCbuj5Wlh8xTR3Mq_Ny-JNVptSnk6JyNHn5-0TZWmJTd5FK_MfAwtF6hgCfL2PW6aBJTpyK8-IqqM2XWZpyCo_M4SCIYzGq3km1o6t9K1aqN-L3CMrW3GYovMnyjxRukI-mPZtY3OJykeVhJY51sWDCa1gbJmGX__Sfm8FjvIcWczqDHF9PEtYTlGV2nI95OGQ22Bkj-MRHB5FWgk6-NW3oql6Ff8DpNmWKdKaH9enDlur80bj0nf16K0vqiqPsJwmP1XzwRSpjFFC_livP3ZUZZGxXzLbLU7OvNPBbugm_TtwxaYIWpwmcQAd5ezIaRvJwbBb0Bbsun5AQIkBebaqmUVGOEPsUbc4V9GIHklf3DfQdXkuKZ2wVN4v_mtvzP7aMhCFNyP8R83nT63xF6IKx21KQ_WvWG0EA8Zwk37L3AFyyQf37LquIH5V-acF7RyCCE-f0jEzFYVsodvLp8e1XgqvzlJSbEv5L656zrlXv8faOeWFj4f1D0ajdBxcQ6mAueNxMVeCWEPDOnM19b8ihkk87hSSOAK-FVvaLmVYIa5dg74pKhkuY1go0biWIyHFcKFyqcixmUEHBBCiC0qgj1zSibvIDOJjjUM8gY=w190-h223-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Joao Oliveira</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/6AokOvNwbFEktpzr267xjWwPwFhBdmAP99YTUMEOtglfhsCQkPwICftXsrd-iHaY_lG5QM-JX2spi3G3WiTzPp-rEFZlDL8RTmy6quAFSJeEVz2FAek2mIQsm-JgzUd2srws4JcfFydAS7yutkX0-Amt37kDV5qXbYxmJZrzzJO9hirva3EcHKx1B2MkFz56qXidZBWEFP0dqqsP1ZbjuYvalnuyKtFWdr3d2VfwJAettw_K0zlmVFTUbT0GyXvw7ONkI0VbAK9AOCoyOesUrchLnGYwwiOMmFmbbflmmq9xf79SIbVoU_H9vG3otvGFg29nNawbmqOf82a3kbfnqppXAM9vhQWOayXmWnQnxY81vJZbkWZpJJTDTtu33UwyZ_pgYpR-QZeX2vPZnM9Si3_O4nSTFNVK4x8H-0YM3SM5idDh8Yxw4KSVXKyZb113sBFVbQ5wGOSTnAOCx1_6k9t2sZircy21ICb64C2kBDE1h41Tfp4WaRykL0Dr2SDKIXB7XyUzVjge-8LCGt67FmJ2RstQ1SJTsqRjMbIPGEJtnMFn3sbKmfmiTmWd6li-GwkD_X2c9bMJtc_2LTni5SANu4I-3J-TVu_mFvR38vbEC6YdLXNENZqZ7TcSk9nTliUS8OHLW2R7U8yHDDEU9YwZvMY2RvzovDG0SomGZDcBtWw1-LxEjAb189-3_n4n6ZZLQq1irq1wv2j6yjeW7VVctY4xz68OfNtpIVQ_mmIkZLrZk6r46oyq4G8=w205-h219-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Joao Costa</b></center></h5>
+     </div>
+     </div>
+     </div>
+     <div class="container">
+     
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/54jg9ln1Jj_U1VAVHj5uWCrzbiS2Y-_PBo9BfyG-IMeBYSK16C8YLsO1F_Pu9Acxm79zEHhRK43URdkIGwnJLo5c6Hb26WzNjeOP8DOZL-MlOmgwZGUSSdrYmTLO4VKUAaZseYgzBU_fgkHc0KY4t5TPbafSVuhicmblZcv_8be0WfM0NiytQMqHWpidY5A76mWXt3X4zIXMDtvY4b4DRy-waLSZGlIKnAT7g6jm5YNnjxKxQHZt6fEjfMtLIkXAk-SJFg0Ck5q4raIzShRRr_iM9eglG0fQW6cn2tVEgotIZHUSio6ui2np1YWW-wtoJEXOe5LBGeIJtRBk4q0vTxEagXtUAWg545GqwVMFAUNWo8bBzFOOGIaySy9ymdOd2ZcP8icl8_O9jnuWUX6UF0J8aM4ktfM0-cvR4N2CzrlKBcfR_y6yiwFmQjyqbO1Dsjdxz1XUSpSHh94ODruh0--ACxrRY9ZZyFTBU18HZFldlMIYIvkVORkhaSuJUEAA9RkG-hOAsbti28J_dQq3f8O5dWBRIb6YgZNCk0SwC4FDdjTdLu-Ejjo4pi1zUTTScrPK_IuJHsAVqgHrfejwEr4ctSc0rI3Fi06IgaXJIbswVoQVXSnbpN-CimiQdhvR_z0VpqC09VZHMHDJkLfm0ibuYPRq5jt5cFGbFozVnZrbb7qgYocHu75i03MvbTuoeQz9hKSNIKPLaHcF-KYluXld7Vl0Aia1c4qfqxjGyuUUtkSTq582AMHKpLk=w186-h226-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Joao Barros</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/L96aQF8A61Az3Zde-xHyw2kHjzHWpuFdNV8oUCnCpC4PcZcY6OVOzaY2ve4KQvZDKrzRuOMVZ3cmIupeHaogvVxzpGRSEfp50SwQz3j-LcY-ag3CGYyzUspm90pnxxU4NHwZQbkW_uYS1NqDgIlBC0L8ab3pe3yqyp7pnc8tytA7aw8EJEpCbb6Dmf99uTcNv3QM4t-ULw2wffE6O9cs9RrJUYjoOdeHujUWsDXcM7YbG2PpNzz5nAIxR19R8B0CvIpR78bj07z6amjo-B5vKeNXdIakAAxvBqnMNu4JkzJuiXUIgKTX0LNLyT9aaLQyAKsu-T1teisNUrer82k1V_py8JNVkj6VMUEjfzbBwzrIJzzqQUWjzWMweTn7sMLJ9lCO9alpjMf61hHzWeu0KYoADqyR0qWeWSmQzBqGT3MUIOMeXM2mOUfV43sACgxxhWRCN4KfDQlVlvstcV-hFnj5dJY6DJnRJzqiN2O_AzUpPdBptdlemPMXch94KC1E7cEw-Ic_23szP47CAn0RivVaPXQth-izMwKVURmlTUz-50WEhkGGKJchpo1fjp2q59Jy7Di7Jd4rY9AtM_eq9OlOc9cUik4ovTqEyqEGJw2EMAWamz2wf8bhhFyKNSrcGRKPQhk8wUBmmi7ZFiTvRdyu15GeYaxf0xpWBGGSPDIA5NgSlq_-EyKZsw9ojzKLzXnuXCZ1LPUccid8GIbpe7CESJ4Ut7-NEEG8cepHu1XDQXh3MiKD1HqkKjQ=w133-h154-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Jonatas Freitas</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/QTe_s6zlkDaoSxPhZazHA_anEiUB1vo6TUTq1DyVmzS39MAjJo1UT9yX7AKi6I1SlKwjYkwNxKXzlzB3cXmWZVmZQ4YDmfysmpZpMJr4LIEB0ZrwuTJmr9TKefBGDaR8twKEAdo-coWSkU-1n30LtNb8dDfzt9jZkQO7rIdn-EicsBzfGfotFU9GlV1TyrStQLwpFUJG_UHXk1mAcyAZfni192dSLkwl2GFWEnRrwx3VH9WWXQy4QRE1hb4EMJcMGR5NPE5yYabghCGCOVoKXFziiUSCWubVH7xy_9bNiTqk_W2J7nJoqVbPvxxKktZmSWKRa9pJar10pGvdifiiJmVkatiBx4hWJSEKm6-oTv0bywEkkLvp7KtxRf7lE5I3LedjHWNERlqhWmw3R145uyw18d10EOypUGh4nfuU92M39p2wFfVDlSOGI0jMQf2a75TRGVVY8RdseIxc_UTY0YglWkMgsC_x8JE1d7nn4IOMNJRHh4UJYhvOAzmPrYl0P0-TvBFDhL-iwyaBY6ZgVIS0h90hMqUFIC4xPubvAyZZ08ze-o89fJXo1ZguOXpyqpDh8t9bxieJ0BBy_MpROtwxVSscQVruDFd4ScPY9ohKesbgfGsJFoWs5eJWjE5u5rgndcPY4DCdpEFx3KQCnF4zXi_IzdSpbC_o-QSefjOyKh9ox2SC0pQMkRG5UPdw9ZL5am_GoHigV-QMKlI2Hpc_Gr0cOl5Cy_Ulo0nNkqaTCQyp-pDumd9EyLQ=w163-h231-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Jose Antonio Neto</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/FK6DGWofWXICTRCb2sCmWyyXJ-yjbp855xh9bQuoRBm-40oFSSzgl8U9utSDKq8I_kT_1AexysMyzmYfYmD0PXjqle8VntOb9KM8ezY4FswbB7CwMNFYZKyIIj-7m0nW3SkngE523RahGA51BRqdQujsDRvtFJB4GVIGC5S2sLDg5tBhsCGhS36U-hLP5inUZIvcO_wTSBsQ0aw_Cnq2aRV7Q_y-Bzyhd1EHjx1ALxygqYx2jK9n2X18kI0lTFPQrV6oFr2gkTFXK4Xpja9Fc_bnTINwmCi33icTRAMmBJQA8-dIqX9amrxyrMIQRxAgwHEA7CsVbLh6XH_tT3qqhyJKI69S-h_RXoCf2LAexC1PyJrPxgS1TQv-MpQruSaIMW3gCEDrtGuJ8nogPBSS1qwtKLGvp3H2StPWWT-qKz3sRuxQrAKLWtMRNdaZzF6M2CnwBEqv3DlgmISaNYU5jaOK4cUdcO1eIN3S3s6TKCKzLy35YQXyMV6vtH5hTJpyOWL6243n_cSEO9FS8J19gi76YY9YhRt5D7Ua5tkwTaYL5KcNwDmX_oigdZmLDv3WyfuaO8eleT0T2Dh6vFIyfcMulAVRiTVmYvLbhwcQfMnI47csZfOo--vjE3KdPIM_7cQMj7DUCs3NGBcnqkuExR_GwjHOxoIaV3M1Y-y72m9zkwgyBfPoRTFLQ55Lp5jBKFBCMfFyf7L5XblAqHutUKD3h3VyqkomICkCUngZB5wPVd3m5r1N4LzUXdY=w193-h225-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Jose da Fonseca Neto</b></center></h5>
+     </div>
+     </div>
+     </div>
+     <div class="container">
+     
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/e45rKk21aV2Xnmi3Vpo2EV3Qch7mZXQPxTLhYSYGvXeYbzOtoqqNNT8Kt4w_HPBAa9hRqR2U0Y9f2XPbppSPbk4ZlKNBtuC3wlsQ2TRGEKME3iNBCj4k743UBakHJdA3LIj_I_QwAXwFjbjf5muXWh2QtMeXSR947QOiRsD06I7jCQ6qBuTIk-2my78MZOsoD3Ag1KC47s3RBsU6ErRT_efS5yQPSnNZTFpVRnRNIBjor21aXiqz9ZeAUP_eMu1ytcWxIUD8gvooi2_DCjo6ZDDby1tpXz7IPrBww4iWIeN8sgLrP39orAonj0JkwlhEwCCmU2jRpHXKjl5ydjHAbASo4xLFtWXf33zYDaHKYvnnE2Z05LstQJxlm7KmT8VL10iT9ofeNmHVVAOuK6BgO2ZUzwwrcIGMPYkLnpxhN45ByCxD7X2h5OlpkjAyVV_vPE2iL4qEiCinkrZlCNBpscwC7BLTaT4ci2qASBRBgfV9i5duvKU023vu5LPWDpv3tZRS7-pFGIf904JToSibY5mKKWZrB2wZkHx5Tk-1vzppD41IbRA-0f2DVddAoKcts7J2Z-U5iG8DD-AfkFIDPkCkzY3mqxEhD4L8JyFuPffCx0U9vU5aQFzvA2U2g0Ret862j3PKe0-S7oe03yiB56vlNBq6YOlqnFTv5AXhbwGY9nGdLvr0XJume5OousPeT-nUHFxgY8qHF42hQNnEiAe0bO3eKU1RyLXH_Fc6oDaDioeMVKgpF0X-DHY=w198-h228-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Jose Barbosa</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/t9exXEc8z-CTxTA5loFNbH3KkPdqvGr0ASgWmtU63mF3IlC_Ue5rQUvgHc_ZCwLqx9QhI7fXNWYJ_v2F11yCVm9E0jNCITtNhSz-7vxsSGKt79CfYuzJuotWzHMrW9xKzF0RGZw9chcsO-a6I5ScywG8keAtm0dkeRPAYGZCSvUUJU_VjXgIggbrzQXkWY55sLH57GsUpKURTSaAxiCj1dwkmf_Fj4MiPX3pWTrs40SixJsnuoTAFccGTNhZg4bvvVc9m8Q84_VwNsSPZhk3dnWPE3D1QV1LkYUVXD3BJkcXwlFAIWNnuonxSZhadAn1a-a5C30RZz65z9K3VF5terhYxiLmfqZ7pV2FFyitwr0kal4W-1GcdYZSDQE3eP54yDjTwj_rISz8F-9deTvgyFzgM4tLE8aMR2ir2y9WXjHbIBzYUHv3XVT7KkA8Gq5OU8UyvV8KlM3k3nMwHkLu4aPZ8sAt0pQh8Bx0yOg3YisMK0Hrh3ErPZuqTv9H5_7MY5wKL5K_dJiOq30lJEQXXIXExvsFI8gWg-FUfGxJKMN9rjn1zAg5XPcZvnxjVyrDoCZsCZ8hbfu5e1D32PoQnocaY0VS5CB5lGFAavclmqKqqycDuF3fJzCPyW6pLi08vWAseznXKG3VoyqGcaLVxdbq3vgb3TiYOKXWBBUJsZ86_Ca1O1s5wuwapte_DBk6boGwt2Mrcn7cvLRVrfWPAXcEOrISltTFQvsi7fL4mhikQ1GXu_6GS12Yjr0=w178-h222-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Lavinia Silva</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/Ojbos43HPvAYb-wcSdss6uYnv86Q3caI7eWn9qeYZzq3SF1YXx-etsqeZV9Ov6Ccphk3C-MBoBH71Xn2CVvIsV8QbpN-FIvEbIcgB0IRU9cuGu8eAremaWx6GKUTQDN8-9A4jwUegEbLdeNwhU3JslKzWXoTn3pBYtNtZwdyypTDc1iwsiMJ0g0AQKGm9zgspO9XMlX9rslj9C1ThT2tJljMSFwlMQwEwTPO-TVSZyevu7lXPQeNMOBxCf50L4zcM3enaM__n4BZPDEDTFX8ueoj0r-lJnWIk6xpEDxIxleyrJIqteFgc1Ylc7Nm7S3RWujqIqpSUPNgtyl1JeDX0iFJ81tG_mqyTh7ynoIynWsKWUSPOb7vGnWETs5HSO2h3EgMm9z-OdsNaWsDwt43DjSB11RUJxKgFnMufA3QlrQvoTHuNtVF5yqJYQnBA0ywXaJpVlyXW1DaSoGCCx96rIPkI814-uel60PH0GIlzhmI_yOMN4p8Ep4WWPyvLXiCjD1n7CKGv_EfG1d9fn7m51WoZ292-rhHDUGYCpEGyHISilJPundGZyYOpFBZJd0C1KXTLMXGbsz3QIksHOw2ARg9gG7M9EVpAgRyxOHVXdbitTG5KVzeQCfmE7j8PjhSIGFFHySRP555NCDrZj3URZM3aPoGixpgL4fRXozy5UDNXMFvHge96z2IpSSbGohi-e5iWUwT6pE5qWfRwIOrJSJpAz0hscsjBmi66EfRgwf2lN79YIqfnbn1MgE=w131-h148-no?authuser=0" wight="120px" height="190px"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Maria Clara Costa</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/ad3LnHK1hqEmGqOomceFVKxZXlxkbFXTIzUsnarORmXRsS-_2ZSf97s1ZcjLsgv5l-ULrp_p464NO2THiMSEzPJGNSQitC1sVV3EvCKroIwrRTB83QB1uW4Sb1h2fY6celXhZxf0WaaqKUZsyV_-fGTT8_kC8Csts4iFFFCZI3HRagqkeKpJQoSNLGf6-l5uccPOAdEFShaJsfqOMee2LuHdLw7j0WoyL5Uq_PuJ3p5AaXzKgsr6SVSx1o2MYt6O1DvqGjvJQflwAeYswndkHB8ohKKGD0RxoJIcSt0ibcV1BvElqh-bsm8FIk75vrQU8x6yk02xW66fAJhbG8wqWUEiJW0e6JFgGobWMnHW4hBDMI2QzO5cvJ3fFxV0B2WFcLa4j1IK3ix7Pba8NGnPOdtmYRCZ_9ARbK_Ppc0Fw8glu1L3d7U4w1Z_2EXJF3CfnCj-_RZktSKPrxQ3kW3RvpUmt3XoVeSW-F30nAKpMOZiHcrLRm-ZGtWsEB4f6ptlpnlUF7_lngIesmyBMF-Mk4SsdnRlVlQ6owJ0mbI1AVMLxiDCl4c6Iwe3DUE6lG8c71biEv0ZHVLOLlxNL-8Dyyt8Jn1iVPA_bQwCLhm36XwOxEObQ3LObqyaXI7MlVWJibfqoG3HrvKWGB3q6zELm0KiXI-xSDeFydXI1ftlRkdKRFECSI7CGm_pfC7KQxdrTHMVBIpt57t2UoDhmrDVLVEKfBtfvFzDzv8kFHJxShfO_FkLag4UZP6AdzA=w130-h144-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Maria Heloisa Costa</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     <div class="container">
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/3OGwMldbDAQSqImYkKYeIF4CB2ZNBflZv390CpH1WbP64mauHMSKhU0WJko9TDrVkYv9NjeEJT7WimEhFwe-3AbEJ_YSA51zinYjT8jTwG5x06SCvJhJeZLK60Z-SEOQ8Pv_xZo2blrVrvHqXnBBHbD5dI5-GAnD-bqAB2Yy3KTt6A3-mWHTV6Rf4dz_dB3B9jx8EOydBtEhzuwZ3YD542pcutzMhIFiggllO7wSqldIHWxdY-NgvF494g0i3nZQPTgZuXlwo63QVwL1I6X1USI10QqZeHH1UkzESFI9uh2oJdN8NqilUVipdnVVdnY07saA3PYSjqiKFYlYijzJvx3YWzmhm56zcYKkFfmuwobpW8BUWdZkpy3pu5jtFMx6IMYdhOcWaUWzBS6xF6imeg2a5kZpQTmeIRPtLltBtu1onlCcWTKy7nVRiguN_81aY0RdA2lJLvmBUA0WxE9w2kxOjOHSmxeS3jQB_SYK4CPqs4iWo2EoXijxv4YfVSwB485I4t9dNNyo-sK0cI0YJr1-tqiUVjEfNKevQFx5sX2DWcYsJDpi9-vjkJb2mgw31xH3SmcTYHEi2PfuzK69TNQwixjm6DAPg6DpVRbzrIP906B31xesQSCXgqPYtZc3F41sWn_Vlv13y68jaTNnBDW1WbCQTDjcDT6TFCjEdbPQ39tRxUugMC2qlV8v0lsiQOg7m5k9ES1urfc_exe2CyorVZgZREVA8gXLPKLjOj0L9xs2xvka2EBCA3Y=w127-h148-no?authuser=0" wight="120px" height="190px"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Matheus Albuquerque</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/fHwVUfav2OsWIGPm3Nu6ffvLI-EuZ2mtWpNhhTnySvHvyMlOGr-R3X8_rPdGnk-02hUU6sa-jnxNpNa-d0XzjK4Typ43-e-rkqOpc5DuY5Yv57k-iPZCrZXnT31baNrmtE_rrBD80ixZU2NVGvwQUTFMSjnW8gAjyyCvc2xqhoQu_s0QPq45jtqfVebWQjTJ6WrViLhdw7tmQojgp_f7lNfuTh9qK-Kxfg0xmMS8lmRi89O_UE30WJi6MoGy_ISzkkVmcsWSNvllgJWKOmjiFxfTLyEA3xm3gWothNGX8AHHysIyoykczA48BqoD0mGVglyfbEv1ypyW5rckAWsG35xaPNstDQALlp1t9O7O_jIvp3HMuq5y5mVdSXUGV0zSuhluogeyFCmHq0omRhewdN9bLuGI6GgX1PK-K5-Ln00ba_QjfEs4wk6TMHXHYh6zMM6eIZlADKb3R47qWP2nPLEgf6vBCFLgxeJIJJESeXAnIxI1TAufnXX2_3RRlJIjxr91H_enP0oVpYzAGenr274GsFOToF2mB3yyRKTN1Hz5bj9dJvW7UNgVlef3w8DQW-D2BATBFMoCaZ5ln0Mw1wwC4Au4w8BZi0cAd1SO2VJQd3vKfBvQ9_8hPSS9VvEaU8H20EsyZGH3P5R5reVQ0GRQFxYYFARIBMuDYgz39QDWImNM-ykER5Bah6UdlpjkCsfs7F8vRdl8jVyiBoGXrqQDn4HgZvMTk44rBWdigy-h_R2IVSHeQeXzz3Y=w129-h148-no?authuser=0" wight="120px" height="190px"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Pedro Junior</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/7o1MOxPH1f1M7GfNLb8PsruWE_GRaQGpEz87gZr2EnoJMjOUMSIj0zEhubVKhnm3WkZOUcPQaMTBXI568Dj3RH3k7qbHM9zPm54fP3fIYeWCtYV4K6poANPwwKHQ7FrGXHAq5msBie5glzrxWnUgWnUpeL7UZT00rDNoCmnXQTPTeFtiJo1ZPjHj_iU-KPadDGH6Qh7UwAybNC_YdrLtkjUoBG0LAb_JcvlO2SAW-zINv4Z2czQ7s_IJZ2CEUoOmy-IMDexp7kTLcvo3SNGJ4-GXyHgs6sq3LOrOeFRnfAQC-biqd8q-Y6S6DuK9buX8BD2uXMnssORAyO_TxTc49JuDkxkl_wJZrrAkqmehbP01w3x44_BnCZ6PbxiJlpWdvfghR9_F9Wx9e7Cts6rLvK_XI1tNeryWnfgxYzrHij7QUYjwE_BKrNprKRuHj1ApDRT4S7qhWFM-pBn5no6tIWrHNcF58dHMSGFDhRpu2sX5BOUBIisGvsoWqrs11ctT34KtHj_Bgdvg9yQ_XxjQV7YEVZodKr-6tvHynAOsy9srEYgN5rwTOrvDRl8Jw8xa82zJhjYf_qe-ig8H79wqdp91zHcKY1aF2T5mmgwxwySKCjpAZSfXC7KUEcjVUkS0R1G_xLJdyr-7zP8NIZ8NEgwoJopop57XmaWtmSIdN9iS4AyCA75q9EVlfYEwDdrYyGI9XPIfgxKtdVjuaoTgTJ4qwNNNFQRQsjTDCBaV3Q7rq6h4nGri13PnGuc=w134-h154-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Rayane Duarte</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/C0hxi5WkvRYaBK75MK0RptRCW9MoFday0EL_G29rt2wh9Zcwd-JgYFQ1Vvjn4k_iG1NF4a05cYz_Ohs3MufePm5LzQQGhKLrDDjXRn7XbBYzUwH4ykSZ5dphQM5pZ-31HW65PwiI8RGDE5h_8Xm9s0jGX9OSwv9JzmHgnCKXqmjirmSraLA5I5ucJQXALEioOPkkmuS0YHBRlhwAwcAQGmyeXBA0pCyVQDwtYa7aNMht7YJbmlbwbmsQKdOeoHJ-wpBkHbTCtjXbu6_B-mtFHhElmQqwCs5yr1FB4hgvnkXxVdRHoMJzVfAjiMIL0M2rHy90PpsQ4mjq7qd0LSNs7FWiHr73TwUFZVVERKQv29T8UNS-gWyfJGYyiFOuYwYfQmj8RTLV38Qbe-Anm_vg8bNLOyR90pF9Mw0oW1dwS0MMjpNWvgVRFQkWzC1ndWv-ARHaa3cS6CdWQN6IoP29ZDuYnmkBi7MgTHcIRbMKAvnfvdWH6zKHxQFjIWZZ85Cpzi8E6T_TLr8Sz9iSre-r8ke8PQKfOnpdU9VPxHHfgMDm6L0DHkYFnvRidk0ZYGjrH6mjzejPLxbXfcuboiVpGnF6nENZVVAVVDmYgrdvZBulm-6D3iM_d_B_12tYjA_ZDzfbHdMCgWXplU4WTez8RjcY14ACoIBofHfHG6HwXEEpFWB8s7g_5BzVSx6RcbFKKYoGXOQAtJBD8_ovn3aFWvFX9NGHkP5xdq4sZGH7Pz8DuXp2D1r5g2BAKvY=w168-h139-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Ricardo Filho</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     <div class="container">
+     
+     <div class="row">
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/xc1Qsc0vSXzaFpuW616G6UhnUs5z7T9AOrkX_7DwVqetPR78SVP6Jcm68gXTk_w7GsH93GN4Lwv1r8RjLLcwqPl2DH6rT0IRBN5Lp1MLI1Gl-xf8YKoVdADrUeF8zWLIrlti0Ib99c2XKh-ZX1q_Wvud0qwQm-IdG5YeuyeKMJD4QnZifF60tY62ueuU_Y5s5jFCFVu6565o-WC0wQrY4DO282y_YV2rM6XUL3J88NzrG8I55m609Esay122UPIGCh11g3Px2EdqGBf34vQ46Y6JeV8hh7qQnQls9hGXdQbS8GPzA1opKYannN5bPCRBJ75H5VEUGFKRtd5G8X7W7mZmeo3W35f9XL9WFBgWqDrpk-Jd-sUr-83f1J9h6JLdt_7WjTI8pQMNN9PfR7Zs7tBIxQxidtDzGZcJanC1WhKr8Z64u4M5DRzXDF0CYqsutFmKTwjTCYGZ-osYX8g7Tafa2NvbsNBFyLhSIBg0ELwTt0REVeQHcfrqzKe70nQj-lXnqJS53ZjUG9-nZ_AQRqzXUPOjUdatHSbp3f5xcq_O_AvJ5AdP4326K2EoJqp4JVOb-9Otp2zstDelxfi3EuFJ9qQjJWN1LlYhtbDw8IUeWAKjosOdl6ccro6ELC45DO7lVTzbh5l3MyPyu_9xnSxff3zKtilvnkD2KDVE-kV1lIbkMRi9VY9CO4ZkJnowHXXnZhmIpKaA0QI9tO2HhiZ7SVg9sYNlpDxxuexaUeCF3OsFcxALtdobpQE=w124-h144-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Silvia Teles</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/6ZfURMexQhgVL14qu1lEc8Mc2JSNk4dVGmJjeeq2YWenAg3By2fBrjWIYrH483Q1dX_y9VPK77PxvnVNza-nlFY1iL0Ni7yoY8vFWkXMqKsW-nwe7cbmFLbrA5R-r4305Bz8KX_rZUxslGXMAi_Kj4-G9WTZNS_Yv9mL9SpRdYQZda1PhvdnVAOewPLyfarx2GfTfssgGcemnQPzn2ntFLCCet7q6r8J3rfDQkzKlL02rWS0EYIQr5_LWFSCNCjKSYD4iwtcz4zCgsG0F0GR3iwbZixupmEcMFEz0-ZKQVgqHlSXnNhTZW_p3-fAZauXFvUlWaY8g8PRCFisPoVkdZUFVf-6WtAw1ZufECRl4bakgaQ2r-Bn2TlH5Q9Nzybo8K-TVy92EEO42-sFHhFYFZ1SZSSI7tlTVy7No5knaD4No9hiICwEcMQK4ZTMHPjc4al4EtaKIBMS6pTg2iB-GJD0PathaAYX3hFHxLINJW56Flk9DqCspXdL7iDtWw9-1wGIouf07ztOzEGMkQnqML3luZwoukdqSCrgkgBcyx4Eju56DreTRwz-dCzYVo6GAH7IK7-AKlCGnKQkb9pToxd1yL9vFeY5lPEAiWgnFa-8xi8IoH1Z9nisEfuX7wpTzNMPPQKLubv1wp2rdipHW-4jLU74kxcELBWHIHS5avAa98q6fTGSNtsXaAYP6pdmMAAGPxwopPIkywKDakFjLLJZLWxtjhHQH1Ua3U58dyFxeVbQbNLJUlZQUMo=w800-h781-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Luis Santos</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     <div class="col-sm">
+     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+     <div class="card-header"><center> <img src="https://lh3.googleusercontent.com/PaIaffDQhNNC98_CPSDWkY6SpOEDpUOfiipiP5Pd4ZCwEbb8dcfhrl3_JVXduormKto5p2sTxU25rKDaMLnAiehKbmcY-ukmQPpWUHApw25TWBhU2ccgSfLY_19HS05rwFiOop5Yee7LYbAWdBwDSQ0iT45S3NjlQDsKtmWWeWCUAFTbdTkpFRN93gszjeNF_5nPYXxo3sxoXKoPivkp7J6MDXGaJcxUVKApaq_0RKQYm-1KQ99N_qPZfV74N-WGh5qdN33pKTsiV1TAJ8qJKmVP-Ra8fcLf4wsF97tQSjimBvJSNA8alRyY-T6-N4iXyAk-To3noeXXJ6fefse8-yVkge0b7Kvq2qVJ6VH-bV85UveBWo4RL5XXsCsBqojaJh2LlI4Fyw_1T15PQ-95n-OXbQiqkCuEwRaaUhujErwnXMNakx9QrrXTmgA-DKrdkKmX6NXNb24F635ijO9DMNyhkzSKk-akt2FFaKZJi-hkXNc4UCZjGkTj-UzEVgmUIVOFEAt5Z2dbKCUMGmKPhukSuHWJ1qWS9QI8ph1j94TtWTpWF0DjDT7x-CWC8Htg_28dC4R9y7kN5ATSGtmHSkrtX71Jy6zhTdBILF0vULqWlcu4iX542l6J86CKkjlDiD-yBPYGwnGZ-D_h8MXumUWP1Qi88kNe5xKdFVsgtpscbjEER1unlQCud8An4wXP9VSOhGnVFzbzTXxDd6ITJpUPYkqEZQsRXJLzEK4PSzUJ9pM73iNWjNIfpsQ=w136-h144-no?authuser=0"> </center></div>
+     <div class="card-body"><h6><i></i></h6>
+     <h5 class="card-title"><center><b>Yasmin Jupi</b></center></h5>
+     </div>
+     </div>
+     </div>
+     
+     
+     
+       <div class="container">
+      <div class="row">
+     <div class="col-sm">
+     <div class="col-sm">
+     <a href="turmasinformatica.html"><center><button>Voltar</button></center></a>
+</div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+    <style type="text/css">
+    .card-header img:hover{
+    transform:scale(1.35,1.35);
+    transition: 0.5s;}
+    
+    
+    body{
+    padding: 5px;
+    font-family:Helvetica}
+    
+    .card-header img{
+    border: 4px solid #fff;
+   }
+
+    h1{
+    color: #fff;
+    font-size: 75px;
+    align-text:center;}
+    
+    hr{
+    color: black;}
+    
+    .rodape{
+    color: #fff;
+    background-color:green;}
+    
+    button{
+    background-color: green;
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius:5px;
+    text-decoration: none;
+    display: block;
+    width: 120px;
+    padding: 12px 7px;
+    text-align: center;
+    margin:20px;
+    transition: 0.5s;
+    }
+    button:hover{
+    background-color: #234966;}
+    </style> 
+    <hr>
+    <div class="rodape">
+    <footer>
+    <p>&nbsp; &nbsp; IFAL CAMPUS PALMEIRA DOS INDIOS  &copy; 2022 &nbsp; &nbsp;</p>
+    
+    
+    </footer>
+    <style type="text/css">
+     .card-body{
+     background-color:white;}
+     .card-title{
+     color: green;}
+     .card-header img{
+      wight: 120px;
+      height:190px;
+     }
+     </style>
+     
+    </div>
+    </body>
+    </html>
